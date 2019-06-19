@@ -17,7 +17,7 @@
 		function comapniesFunc() {
 
 			$("compTbl").attr("href", false);
-			$.getJSON("http://localhost:8080/com.couponsProject/rest/admin/getAllCompanies", function (result) {
+			$.getJSON("http://localhost:8080/com.project/rest/admin/getAllCompanies", function (result) {
 
 				$.each(result, function (i, item) {
 					$("#compTbl").append(
@@ -32,14 +32,14 @@
 
 		function removeCompany(compId) {
 			console.log("removing id: " + compId)
-			$.getJSON("http://localhost:8080/com.couponsProject/rest/admin/removeCompany?compId=" + compId, function (result) {
+			$.getJSON("http://localhost:8080/com.project/rest/admin/removeCompany?compId=" + compId, function (result) {
 				alert(JSON.stringify(result))
 			})
 		}
 
 		function customersFunc() {
 
-			$.getJSON("http://localhost:8080/com.couponsProject/rest/admin/getAllCustomers", function (result) {
+			$.getJSON("http://localhost:8080/com.project/rest/admin/getAllCustomers", function (result) {
 
 				$.each(result, function (i, item) {
 					$("#custTbl").append(
@@ -54,7 +54,7 @@
 
 		function removeCustomer(custId) {
 			console.log("removing id: " + custId)
-			$.getJSON("http://localhost:8080/com.couponsProject/rest/admin/removeCustomer?custId=" + custId, function (result) {
+			$.getJSON("http://localhost:8080/com.project/rest/admin/removeCustomer?custId=" + custId, function (result) {
 				alert(JSON.stringify(result))
 			})
 		}
@@ -87,7 +87,7 @@
 
 				<br>
 				<h3> Add a new company</h3>
-				<form id="addCompanyFrm" action="http://localhost:8080/com.couponsProject/rest/admin/createCompany">
+				<form id="addCompanyFrm" action="http://localhost:8080/com.project/rest/admin/createCompany">
 					Company name: <input type="text" name="name"><br> Company pass: <input type="text" name="pass"><br> Company email:
 					<input type="text" name="email"><br>
 					<input type="submit" value="Add company">
@@ -110,7 +110,7 @@
 
 				<br>
 				<h3> Add a new customer</h3>
-				<form id="addCustomerFrm" action="http://localhost:8080/com.couponsProject/rest/admin/createCustomer">
+				<form id="addCustomerFrm" action="http://localhost:8080/com.project/rest/admin/createCustomer">
 					Customer name: <input type="text" name="name"><br> Customer pass: <input type="text" name="pass"> <br>
 					<input type="submit" value="Add customer">
 				</form>
