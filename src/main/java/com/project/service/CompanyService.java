@@ -18,6 +18,7 @@ import javax.ws.rs.core.MediaType;
 import com.google.gson.Gson;
 import com.project.beans.Company;
 import com.project.beans.Coupon;
+import com.project.beans.CouponType;
 import com.project.facade.CompanyFacade;
 
 
@@ -27,6 +28,7 @@ public class CompanyService {
 	private HttpServletRequest request;
 	@Context
 	private HttpServletResponse response;
+	
 
 	public CompanyFacade getFacade() {
 		CompanyFacade companyFacade = (CompanyFacade) request.getSession(false).getAttribute("facade");
@@ -71,6 +73,7 @@ public class CompanyService {
 		try {
 			// Coupon coupon = companyFacade.getCouponById(id);
 			Company company = companyFacade.getCouponById(id);
+			
 			// if(coupon!=null) {
 			if (company != null) {
 				companyFacade.updateCoupon(coupon, newEndDate, newPrice);

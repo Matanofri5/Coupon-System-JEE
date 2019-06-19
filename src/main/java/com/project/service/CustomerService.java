@@ -13,6 +13,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+
+import com.project.beans.Coupon;
+import com.project.beans.CouponType;
 import com.project.facade.CustomerFacade;
 
 @Path("/customer")
