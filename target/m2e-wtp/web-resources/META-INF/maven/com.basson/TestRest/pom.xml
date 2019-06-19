@@ -3,14 +3,14 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.project</groupId>
-    <artifactId>CouponsSystemREST</artifactId>
+    <groupId>com.basson</groupId>
+    <artifactId>TestRest</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>CouponsSystemREST</name>
+    <name>TestRest</name>
 
     <build>
-        <finalName>CouponsSystemREST</finalName>
+        <finalName>TestRest</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
