@@ -86,10 +86,11 @@ public class AdminService {
 	
 		
 		// UPDATE a company
-		@PUT
+		@POST
 		@Path("updateCompany")
+		@Consumes(MediaType.APPLICATION_JSON)
 		@Produces(MediaType.APPLICATION_JSON)
-		public void updateComany (@QueryParam("companyId") long id, @QueryParam("password") String password,
+		public void updateComany (@QueryParam("company") long id, @QueryParam("password") String password,
 				@QueryParam("email") String email) throws LoginException, Exception {
 			AdminFacade adminFacade = getFacade();
 

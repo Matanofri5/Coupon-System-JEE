@@ -18,15 +18,15 @@ public class Company {
 	public Company() {
 	}
 
-	/**
-	 * @Full CTOR
-	 */
-	public Company(long id, String companyName, String password, String email) {
-		setId(id);
-		setCompanyName(companyName);
-		setPassword(password);
-		setEmail(email);
-	}
+//	/**
+//	 * @Full CTOR
+//	 */
+//	public Company(long id, String companyName, String password, String email) {
+//		setId(id);
+//		setCompanyName(companyName);
+//		setPassword(password);
+//		setEmail(email);
+//	}
 
 	/**
 	 * @Full CTOR

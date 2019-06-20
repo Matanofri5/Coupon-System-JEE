@@ -39,11 +39,11 @@ public class TheTest {
 		}
 		
 		// Companies //
-		Company a1 = new Company(1, "Hp", "aa11", "hp@gmail.com");
-		Company a2 = new Company(2, "Lg", "bb22", "lg@gmail.com");
-		Company a3 = new Company(3, "Sony", "cc33", "sony@gmail.com");
-		Company a4 = new Company(4, "CocaCola", "dd44", "cocacola@gamil.com");
-		Company a5 = new Company(5, "Samsung", "ee55", "samsung@gamil.com");
+		Company a1 = new Company("Hp", "aa11", "hp@gmail.com");
+		Company a2 = new Company("Lg", "bb22", "lg@gmail.com");
+		Company a3 = new Company("Sony", "cc33", "sony@gmail.com");
+		Company a4 = new Company("CocaCola", "dd44", "cocacola@gamil.com");
+		Company a5 = new Company("Samsung", "ee55", "samsung@gamil.com");
 		
 		// Customers //
 		Customer b1 = new Customer(1, "Matan", "123");

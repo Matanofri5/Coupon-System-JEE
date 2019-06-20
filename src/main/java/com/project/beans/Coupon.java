@@ -26,13 +26,30 @@ public class Coupon {
 	public Coupon() {
 	}
 
+//	/**
+//	 * @Full CTOR
+//	 */
+//	public Coupon(long id, String title, java.util.Date startDate, java.util.Date endDate, int amount, String message,
+//			double price, String image, CouponType couponType) {
+//		super();
+//		setId(id);
+//		setTitle(title);
+//		setStartDate(startDate);
+//		setEndDate(endDate);
+//		setAmount(amount);
+//		setMessage(message);
+//		setPrice(price);
+//		setImage(image);
+//		setType(couponType);
+//	}
+	
+	
 	/**
 	 * @Full CTOR
 	 */
-	public Coupon(long id, String title, java.util.Date startDate, java.util.Date endDate, int amount, String message,
+	public Coupon(String title, java.util.Date startDate, java.util.Date endDate, int amount, String message,
 			double price, String image, CouponType couponType) {
 		super();
-		setId(id);
 		setTitle(title);
 		setStartDate(startDate);
 		setEndDate(endDate);
