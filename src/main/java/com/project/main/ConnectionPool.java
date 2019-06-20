@@ -29,7 +29,7 @@ public class ConnectionPool {
 	 */
 	private ConnectionPool() throws Exception {
 		try {
-			Class.forName(DataBase.getDBUrl());
+			Class.forName(DataBase.getDriverData());
 		} catch (Exception e) {
 			throw new ErrorConnectingDriverException("Something faulty with the connection to Driver" + e.getMessage());
 		}
