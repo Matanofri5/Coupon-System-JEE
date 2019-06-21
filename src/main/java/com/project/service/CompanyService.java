@@ -45,18 +45,20 @@ public class CompanyService {
 	}
 
 	// create Coupon
-	@POST
-	@Path("createCoupon")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public void createCoupon(Company company, Coupon coupon) throws LoginException, Exception {
-		CompanyFacade companyFacade = getFacade();
-		try {
-			companyFacade.createCoupon(company, coupon);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
+//	@POST
+//	@Path("createCoupon")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public void createCoupon(Company company, Coupon coupon) throws LoginException, Exception {
+//		CompanyFacade companyFacade = getFacade();
+//		Company company1 = new Company();
+//		Coupon coupon1 = new Coupon();
+//		try {
+//			companyFacade.createCoupon(company1, coupon1);
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+//	}
 
 	// remove Coupon By Id
 	@DELETE
