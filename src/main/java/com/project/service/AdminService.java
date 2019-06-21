@@ -162,9 +162,9 @@ public class AdminService {
 		
 		// REMOVE a customer
 		@DELETE
-		@Path("removeCustomer")
+		@Path("removeCustomer/{customerId}")
 		@Produces(MediaType.APPLICATION_JSON)
-		public void removeCustomer (@QueryParam("customerId") long id) throws LoginException, Exception {
+		public void removeCustomer (@PathParam("customerId") long id) throws LoginException, Exception {
 			
 			AdminFacade adminFacade = getFacade();
 			Customer customer = null;
