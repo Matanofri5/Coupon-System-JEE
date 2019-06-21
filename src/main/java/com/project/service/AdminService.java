@@ -52,11 +52,9 @@ public class AdminService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String createCompany (Company company) throws Exception {
 			AdminFacade adminFacade = getFacade();
-//			String failmsg = "Failed to create company "+ company.getCompanyName()+" , please change the company name";
 			try {
 				adminFacade.createCompany(company);
 				return new Gson().toJson(company);
-//				return "Succeed to create company " + company.getCompanyName();
 			} catch (CompanyAlreadyExistsException e) {
 				System.out.println(e.getMessage());
 			}
@@ -90,7 +88,7 @@ public class AdminService {
 		@Path("updateCompany")
 		@Consumes(MediaType.APPLICATION_JSON)
 		@Produces(MediaType.APPLICATION_JSON)
-		public void updateComany (@QueryParam("company") long id, @QueryParam("password") String password,
+		public void updateComany (@QueryParam("companyId") long id, @QueryParam("password") String password,
 				@QueryParam("email") String email) throws LoginException, Exception {
 			AdminFacade adminFacade = getFacade();
 
@@ -181,7 +179,7 @@ public class AdminService {
 			}
 		}
 		
-		@PUT
+		@POST
 		@Path("updateCustomer")
 		@Produces(MediaType.APPLICATION_JSON)
 		public void updateCustomer(@QueryParam("customerId") long id, @QueryParam("password") String password) throws LoginException, Exception {
