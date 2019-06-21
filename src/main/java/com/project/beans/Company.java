@@ -18,9 +18,9 @@ public class Company {
 	public Company() {
 	}
 
-//	/**
-//	 * @Full CTOR
-//	 */
+	/**
+	 * @Full CTOR
+	 */
 	public Company(long id, String companyName, String password, String email) {
 		setId(id);
 		setCompanyName(companyName);
