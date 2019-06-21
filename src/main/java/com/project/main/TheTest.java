@@ -46,19 +46,19 @@ public class TheTest {
 		Company a5 = new Company("Samsung", "ee55", "samsung@gamil.com");
 		
 		// Customers //
-		Customer b1 = new Customer(1, "Matan", "123");
-		Customer b2 = new Customer(2, "Linoy", "456");
-		Customer b3 = new Customer(3, "Dvir", "678");
-		Customer b4 = new Customer(4, "Ehud", "910");
-		Customer b5 = new Customer(5, "Or", "658");
+		Customer b1 = new Customer("Matan", "123");
+		Customer b2 = new Customer("Linoy", "456");
+		Customer b3 = new Customer("Dvir", "678");
+		Customer b4 = new Customer("Ehud", "910");
+		Customer b5 = new Customer("Or", "658");
 		
 		// Coupons //
-		Coupon c1 = new Coupon(1, "Teva pharm", DateUtils.getCurrentDate(), DateUtils.getByMounth(), 55, "Teva", 33.5, "website", CouponType.HEALTH);
-		Coupon c2 = new Coupon(2, "Chairs", DateUtils.getCurrentDate(), DateUtils.getByTwoWeeks(), 66, "Hagor", 12.5, "website", CouponType.CAMPING);
-		Coupon c3 = new Coupon(3, "Pizza", DateUtils.getCurrentDate(), DateUtils.getByWeek(), 77, "PizzaHut", 41.2, "website", CouponType.FOOD);
-		Coupon c4 = new Coupon(4, "Roller coaster", DateUtils.getCurrentDate(), DateUtils.getByWeek(), 99, "LunaPark", 32.4, "website", CouponType.TRAVELING);
-		Coupon c5 = new Coupon(5, "Teva pharm", DateUtils.getCurrentDate(), DateUtils.getByTwoWeeks(), 0, "Teva", 4444.7, "website", CouponType.HEALTH);
-		Coupon c6 = new Coupon(6, "Sushi", DateUtils.getCurrentDate(), DateUtils.getByTwoMountsAgo(), 55, "roll", 55/5, "website", CouponType.FOOD);
+		Coupon c1 = new Coupon("Teva pharm", DateUtils.getCurrentDate(), DateUtils.getByMounth(), 55, "Teva", 33.5, "website", CouponType.HEALTH);
+		Coupon c2 = new Coupon("Chairs", DateUtils.getCurrentDate(), DateUtils.getByTwoWeeks(), 66, "Hagor", 12.5, "website", CouponType.CAMPING);
+		Coupon c3 = new Coupon("Pizza", DateUtils.getCurrentDate(), DateUtils.getByWeek(), 77, "PizzaHut", 41.2, "website", CouponType.FOOD);
+		Coupon c4 = new Coupon("Roller coaster", DateUtils.getCurrentDate(), DateUtils.getByWeek(), 99, "LunaPark", 32.4, "website", CouponType.TRAVELING);
+		Coupon c5 = new Coupon("Teva pharm", DateUtils.getCurrentDate(), DateUtils.getByTwoWeeks(), 0, "Teva", 4444.7, "website", CouponType.HEALTH);
+		Coupon c6 = new Coupon("Sushi", DateUtils.getCurrentDate(), DateUtils.getByTwoMountsAgo(), 55, "roll", 55/5, "website", CouponType.FOOD);
 
 		//***Admin test***//
 		

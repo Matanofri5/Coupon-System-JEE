@@ -275,7 +275,7 @@ public class CustomerDBDAO implements CustomerDAO {
 				long id = rs.getLong(1);
 				String customerName = rs.getString(2);
 				String password = rs.getString(3);
-				set.add(new Customer(id, customerName, password));
+				set.add(new Customer(customerName, password));
 			}
 		} catch (SQLException e) {
 			System.err.println("Get all customer failed :( ");
