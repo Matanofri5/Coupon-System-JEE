@@ -22,7 +22,7 @@
 //import com.project.facade.CompanyFacade;
 //
 //
-//@Path("/company")
+//@Path("company")
 //public class CompanyService {
 //	@Context
 //	private HttpServletRequest request;
@@ -37,7 +37,7 @@
 //
 //	// create Coupon
 //	@POST
-//	@Path("/createCoupon")
+//	@Path("createCoupon")
 //	@Consumes(MediaType.APPLICATION_JSON)
 //	@Produces(MediaType.APPLICATION_JSON)
 //	public void createCoupon(Company company, Coupon coupon) {
@@ -51,7 +51,7 @@
 //
 //	// remove Coupon By Id
 //	@DELETE
-//	@Path("/removeCouponById")
+//	@Path("removeCouponById")
 //	@Produces(MediaType.APPLICATION_JSON)
 //	public String removeCouponById(@QueryParam("/couponId") long id) {
 //		CompanyFacade companyFacade = getFacade();
@@ -65,7 +65,7 @@
 //
 //	// update Coupon
 //	@PUT
-//	@Path("/updateCoupon")
+//	@Path("updateCoupon")
 //	@Produces(MediaType.APPLICATION_JSON)
 //	public void updateCoupon(@QueryParam("couponId") long id, @QueryParam("endDate") Date newEndDate,
 //			@QueryParam("price") double newPrice) {
@@ -85,7 +85,7 @@
 //
 //	// get Company
 //	@GET
-//	@Path("/getCompany")
+//	@Path("getCompany")
 //	@Produces(MediaType.APPLICATION_JSON)
 //	public String getCompany(@QueryParam("companyId") long id) {
 //		CompanyFacade companyFacade = getFacade();
@@ -103,7 +103,7 @@
 //
 //	// get Coupon By Id
 //	@GET
-//	@Path("/getCouponById")
+//	@Path("getCouponById")
 //	@Produces(MediaType.APPLICATION_JSON)
 //	public String getCouponById(@QueryParam("couponId") long id) {
 //		CompanyFacade companyFacade = getFacade();
@@ -145,7 +145,7 @@
 //
 //	// get All Company Coupons
 //	@GET
-//	@Path("/getAllCompanyCoupons")
+//	@Path("getAllCompanyCoupons")
 //	@Produces(MediaType.APPLICATION_JSON)
 //	public String getAllCompanyCoupons(@QueryParam("companyId") long companyId) {
 //		CompanyFacade companyFacade = getFacade();
@@ -161,7 +161,7 @@
 //
 //	// get Coupon by Type
 //	@GET
-//	@Path("/getCouponbyType")
+//	@Path("getCouponbyType")
 //	@Produces(MediaType.APPLICATION_JSON)
 //	// must Company company :((
 //	public String getCouponbyType(@QueryParam("companyId") Company company,
@@ -180,7 +180,7 @@
 //
 //	// get Coupon By Price
 //	@GET
-//	@Path("/getCouponByPrice")
+//	@Path("getCouponByPrice")
 //	@Produces(MediaType.APPLICATION_JSON)
 //	// must Company company :((
 //	public String getCouponByPrice(@QueryParam("companyId") Company company, @QueryParam("price") double price) {
@@ -198,7 +198,7 @@
 //
 //	// get Coupon By Date
 //	@GET
-//	@Path("/getCouponByDate")
+//	@Path("getCouponByDate")
 //	@Produces(MediaType.APPLICATION_JSON)
 //	// must Company company :((
 //	public String getCouponByDate(@QueryParam("companyId") Company company, @QueryParam("endDate") Date endDate) {
