@@ -71,11 +71,11 @@
 //			@QueryParam("price") double newPrice) {
 //		CompanyFacade companyFacade = getFacade();
 //		try {
-//			// Coupon coupon = companyFacade.getCouponById(id);
-//			Company company = companyFacade.getCouponById(id);
+//			 Coupon coupon = companyFacade.getCouponById(id);
+////			Company company = companyFacade.getCouponById(id);
 //			
-//			// if(coupon!=null) {
-//			if (company != null) {
+//			 if(coupon!=null) {
+////			if (company != null) {
 //				companyFacade.updateCoupon(coupon, newEndDate, newPrice);
 //			}
 //		} catch (Exception e) {

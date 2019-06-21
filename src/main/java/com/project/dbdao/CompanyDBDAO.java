@@ -331,7 +331,7 @@ public class CompanyDBDAO implements CompanyDAO{
 				String companyName = rs.getString(2);
 				String password = rs.getString(3);
 				String email = rs.getString(4);
-				set.add(new Company(companyName, password, email));
+				set.add(new Company(id,companyName, password, email));
 				// System.out.println("Get all company success :D ");
 			}
 		} catch (SQLException e) {

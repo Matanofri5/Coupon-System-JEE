@@ -18,14 +18,14 @@ public class Customer {
 	public Customer() {
 	}
 
-//	/**
-//	 * @Full CTOR
-//	 */
-//	public Customer(long id, String customerName, String password) {
-//		setCustomerName(customerName);
-//		setId(id);
-//		setPassword(password);
-//	}
+	/**
+	 * @Full CTOR
+	 */
+	public Customer(long id, String customerName, String password) {
+		setCustomerName(customerName);
+		setId(id);
+		setPassword(password);
+	}
 
 	/**
 	 * @Full CTOR
