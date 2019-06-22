@@ -106,9 +106,9 @@ public class CompanyFacade implements CouponClientFacade{
 		return companyDAO.getCompany(id);
 	}
 	
-	//
-	public Company getCouponById(long couponId) throws Exception {
-		return companyDAO.getCompany(couponId);
+	
+	public Coupon getCouponById(long id) throws Exception {
+		return couponDAO.getCoupon(id);
 	}
 	
 	/**

@@ -83,37 +83,35 @@ public class CompanyService {
 
 	// remove Coupon By Id
 	@DELETE
-	@Path("removeCouponById")
+	@Path("removeCouponById/{couponId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String removeCouponById(@QueryParam("/couponId") long id) throws LoginException, Exception {
+	public String removeCouponById(@PathParam("couponId") long couponId) throws LoginException, Exception {
 		CompanyFacade companyFacade = getFacade();
+		
 		try {
-			companyFacade.getCouponById(id);
-			return "Succeded to remove a coupon:  id = " + id;
+			companyFacade.removeCouponById(couponId);
+			return "Succeded to remove a coupon:  id = " + couponId;
 		} catch (Exception e) {
 			return "Failed to remove a coupon: " + e.getMessage();
 		}
 	}
 
-//	// update Coupon
-//	@PUT
-//	@Path("updateCoupon")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public void updateCoupon(@QueryParam("couponId") long id, @QueryParam("endDate") Date newEndDate,
-//			@QueryParam("price") double newPrice) {
-//		CompanyFacade companyFacade = getFacade();
-//		try {
-//			 Coupon coupon = companyFacade.getCouponById(id);
-////			Company company = companyFacade.getCouponById(id);
-//			
-//			 if(coupon!=null) {
-////			if (company != null) {
-//				companyFacade.updateCoupon(coupon, newEndDate, newPrice);
-//			}
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());
-//		}
-//	}
+	// update Coupon
+	@POST
+	@Path("updateCoupon")
+	@Produces(MediaType.APPLICATION_JSON)
+	public void updateCoupon(@QueryParam("couponId") long id, @QueryParam("endDate") Date newEndDate,
+			@QueryParam("price") double newPrice) throws LoginException, Exception {
+		CompanyFacade companyFacade = getFacade();
+		try {
+			 Coupon coupon = companyFacade.getCouponById(id);
+			 if(coupon!=null) {
+				companyFacade.updateCoupon(coupon, newEndDate, newPrice);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
 	// get Company
 	@GET
@@ -133,25 +131,25 @@ public class CompanyService {
 		return null;
 	}
 
-	// get Coupon By Id
-	@GET
-	@Path("getCouponById")
-	@Produces(MediaType.APPLICATION_JSON)
-	public String getCouponById(@QueryParam("couponId") long id) throws LoginException, Exception {
-		CompanyFacade companyFacade = getFacade();
-		try {
-			// Coupon coupon = companyFacade.getCouponById(id);
-			Company company = companyFacade.getCouponById(id);
-			// if (coupon != null) {
-			if (company != null) {
-				return new Gson().toJson(company);
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		System.err.println("Failed to get coupon by id " + id + ", please enter another coupon id");
-		return null;
-	}
+//	// get Coupon By Id
+//	@GET
+//	@Path("getCouponById")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public String getCouponById(@QueryParam("couponId") long id) throws LoginException, Exception {
+//		CompanyFacade companyFacade = getFacade();
+//		try {
+//			// Coupon coupon = companyFacade.getCouponById(id);
+//			Company company = companyFacade.getCouponById(id);
+//			// if (coupon != null) {
+//			if (company != null) {
+//				return new Gson().toJson(company);
+//			}
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+//		System.err.println("Failed to get coupon by id " + id + ", please enter another coupon id");
+//		return null;
+//	}
 	
 	// get Coupon By Id FROM MICHAL AND AB
 //	@GET
