@@ -67,19 +67,16 @@ public class AdminService {
 		@Path("removeCompany/{companyId}")
 		@Produces(MediaType.APPLICATION_JSON)
 		public void removeCompany (@PathParam("companyId") long id) throws Exception {
-//			String failmsg = "Failed to remove company: this id doesn't exist, please enter another company id";
 			AdminFacade adminFacade = getFacade();
 			Company company = null;
 			try {
 				company = adminFacade.getCompany(id);
 				if(company != null) {
 					adminFacade.removeCompany(company);
-//					return "Succeed to remove company " + company.getCompanyName() + " by id " + id;
 				}
 			} catch (RemoveCompanyException e) {
 				e.printStackTrace();
 			}
-//			return failmsg;
 		}
 	
 		
@@ -88,7 +85,7 @@ public class AdminService {
 		@Path("updateCompany")
 		@Consumes(MediaType.APPLICATION_JSON)
 		@Produces(MediaType.APPLICATION_JSON)
-		public void updateComany (@QueryParam("companyId") long id, @QueryParam("password") String password,
+		public void updateCompany (@QueryParam("companyId") long id, @QueryParam("password") String password,
 				@QueryParam("email") String email) throws LoginException, Exception {
 			AdminFacade adminFacade = getFacade();
 
@@ -96,12 +93,10 @@ public class AdminService {
 				Company company = adminFacade.getCompany(id);
 				if (company != null) {
 					adminFacade.updateCompany(company, password, email);
-//					return "Succeed to update company " + company.getCompanyName();
 				}
 			} catch (Exception e) {
 					System.out.println(e.getMessage());
 			}
-//			return "Failed to update company";
 		}
 		
 		// GET company by id
@@ -114,7 +109,6 @@ public class AdminService {
 			try {
 				Company company = adminFacade.getCompany(id);
 				if (company != null) {
-//					System.out.println(company.getCompanyName() + ", id = " + company.getId());
 					return new Gson().toJson(company);
 				}
 			} catch (Exception e) {

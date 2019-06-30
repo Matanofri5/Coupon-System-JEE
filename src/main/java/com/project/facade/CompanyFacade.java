@@ -14,6 +14,7 @@ import com.project.dao.CouponDAO;
 import com.project.dbdao.CompanyDBDAO;
 import com.project.dbdao.CouponDBDAO;
 import com.project.main.ClientType;
+import com.project.main.DateUtils;
 
 
 /**
@@ -88,10 +89,10 @@ public class CompanyFacade implements CouponClientFacade{
 	 * @update this method update 1 object of coupon, from coupon table.
 	 * @param coupon object, newEndDate, newPrice
 	 */
-	public void updateCoupon(Coupon coupon, Date newEndDate, double newPrice)
+	public void updateCoupon(Coupon coupon, Date endDate, double price)
 			throws Exception {
-		coupon.setEndDate(newEndDate);
-		coupon.setPrice(newPrice);
+		coupon.setEndDate(DateUtils.getByMounth());
+		coupon.setPrice(price);
 		
 		couponDAO.updateCoupon(coupon);
 	}

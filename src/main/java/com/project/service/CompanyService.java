@@ -52,35 +52,18 @@ public class CompanyService {
 //	@Path("createCoupon")
 //	@Consumes(MediaType.APPLICATION_JSON)
 //	@Produces(MediaType.APPLICATION_JSON)
-//	public void createCoupon(String jsonString) throws LoginException, Exception {
+//	public String createCoupon(Company company, Coupon coupon) throws LoginException, Exception {
 //		CompanyFacade companyFacade = getFacade();
 //		
 //		try {
-//		
-//			JsonParser parser = new JsonParser();
-//			JsonObject object = parser.parse(jsonString).getAsJsonObject();
-//			long companyId = Long.parseLong(object.get("companyId").getAsString());
-//			String companyName = object.get("companyName").getAsString();
-//			String password= object.get("password").getAsString();
-//			String email= object.get("email").getAsString();
-//			long couponId = Long.parseLong(object.get("couponId").getAsString());
-//			String title = object.get("title").getAsString();
-//			String startDate = object.get("startDate").getAsString();
-//			String endDate = object.get("endDate").getAsString();
-//			long amount = Long.parseLong(object.get("amount").getAsString());
-//			String message = object.get("message").getAsString();
-//			Double price = (double) Long.parseLong(object.get("price").getAsString());
-//			String image = object.get("image").getAsString();
-//			String couponType = object.get("couponType").getAsString();
-//
-//			Company company = new Company(companyId, companyName, password, email);
-//			Coupon coupon = new Coupon(couponId, title, startDate, endDate, amount, message, price, image, couponType);
 //			companyFacade.createCoupon(company, coupon);
 //		} catch (Exception e) {
 //			System.out.println(e.getMessage());
 //		}
+//		return null;
 //	}
 
+	
 	// remove Coupon By Id
 	@DELETE
 	@Path("removeCouponById/{couponId}")
@@ -96,17 +79,19 @@ public class CompanyService {
 		}
 	}
 
+	
 	// update Coupon
 	@POST
 	@Path("updateCoupon")
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void updateCoupon(@QueryParam("couponId") long id, @QueryParam("endDate") Date newEndDate,
-			@QueryParam("price") double newPrice) throws LoginException, Exception {
+	public void updateCoupon(@QueryParam("couponId") long id, @QueryParam("endDate") Date endDate,
+			@QueryParam("price") double price) throws LoginException, Exception {
 		CompanyFacade companyFacade = getFacade();
 		try {
 			 Coupon coupon = companyFacade.getCouponById(id);
 			 if(coupon!=null) {
-				companyFacade.updateCoupon(coupon, newEndDate, newPrice);
+				companyFacade.updateCoupon(coupon, endDate, price);
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -131,48 +116,25 @@ public class CompanyService {
 		return null;
 	}
 
-//	// get Coupon By Id
-//	@GET
-//	@Path("getCouponById")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public String getCouponById(@QueryParam("couponId") long id) throws LoginException, Exception {
-//		CompanyFacade companyFacade = getFacade();
-//		try {
-//			// Coupon coupon = companyFacade.getCouponById(id);
-//			Company company = companyFacade.getCouponById(id);
-//			// if (coupon != null) {
-//			if (company != null) {
-//				return new Gson().toJson(company);
-//			}
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());
-//		}
-//		System.err.println("Failed to get coupon by id " + id + ", please enter another coupon id");
-//		return null;
-//	}
+	// get Coupon By Id
+	@GET
+	@Path("getCouponById/{couponId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getCouponById(@PathParam("couponId") long id) throws LoginException, Exception {
+		CompanyFacade companyFacade = getFacade();
+		try {
+			 Coupon coupon = companyFacade.getCouponById(id);
+			 if (coupon != null) {
+				return new Gson().toJson(coupon);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		System.err.println("Failed to get coupon by id " + id + ", please enter another coupon id");
+		return null;
+	}
 	
-	// get Coupon By Id FROM MICHAL AND AB
-//	@GET
-//	@Path("/getCouponById")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public String getCouponById(@QueryParam("couponId") long id) {
-//		CompanyFacade companyFacade = getFacade();
-//		try {
-//			Coupon coupon = companyFacade.getCouponById(id);
-//			if (coupon!=null) {
-//				return new Gson().toJson(coupon);
-//			}
-//			else {
-//				return null;
-//			}
-//		}
-//		catch (Exception e) {
-//			System.err.println("get coupon by id failed " + e.getMessage());
-//			return null;
-//		}
-//	}
 	
-
 	// get All Company Coupons
 	@GET
 	@Path("getAllCompanyCoupons/{companyId}")
