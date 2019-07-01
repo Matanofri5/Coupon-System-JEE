@@ -72,6 +72,7 @@ public class AdminService {
 				company = adminFacade.getCompany(id);
 				if(company != null) {
 					adminFacade.removeCompany(company);
+					System.out.println("Succeed to remove company " + company.getCompanyName());
 				}
 			} catch (RemoveCompanyException e) {
 				e.printStackTrace();
