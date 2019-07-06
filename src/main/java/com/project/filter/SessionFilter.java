@@ -1,49 +1,47 @@
-//package com.project.filter;
-//import java.io.IOException;
-//
-//import javax.servlet.Filter;
-//import javax.servlet.FilterChain;
-//import javax.servlet.FilterConfig;
-//import javax.servlet.ServletException;
-//import javax.servlet.ServletRequest;
-//import javax.servlet.ServletResponse;
-//import javax.servlet.http.HttpServletRequest;
-//import javax.servlet.http.HttpServletResponse;
-//import javax.servlet.http.HttpSession;
-//
-//public class SessionFilter implements Filter{
-//	 /**
-//     * Default empty constructor. 
-//     */
-//    public SessionFilter() {}
-//
-//    /**
-//     * @see Filter#init(FilterConfig)
-//     */
-//    @Override
-//    public void init(FilterConfig fConfig) throws ServletException {}
-//    
-//    /**
-//     * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
-//     * Check if there is no session - return to the Login page
-//     */
-//    @Override
-//    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-//    	
-//    	HttpSession session = ((HttpServletRequest)request).getSession(false);
-//    	
-//    	// if there is no session - return to the Login HTML form if the user name or password are incorrect
-//    	if (session == null){
-//			((HttpServletResponse)response).sendRedirect("login.html");
-//    	} else{
-//    		// else - pass the request along the filter chain
-//    		chain.doFilter(request, response);
-//    	}
-//    }
-//    
-//	/**
-//	 * @see Filter#destroy()
-//	 */
-//    @Override
-//	public void destroy() {}
-//}
+package com.project.filter;
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+public class SessionFilter implements Filter{
+	
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
+        HttpServletResponse response = (HttpServletResponse) res;
+        HttpServletRequest request = (HttpServletRequest) req;
+
+
+            response.setHeader("Access-Control-Allow-Headers", "Origin, Authorization , X-Requested-With, Content-Type, Accept," +
+                    " X-Auth-Token, Set-Cookie, Cookie , cache-control, JSESSIONID, Access-Control-Allow-Origin , Access-Control-Allow-Credentials ," +
+                    "Access-Control-Max-Age");
+            response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+            response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+            response.setHeader("Access-Control-Max-Age", "3600");
+            response.setHeader("Access-Control-Allow-Credentials", "true");
+            response.setHeader("Access-Control-Expose-Headers", "Accept-Ranges, Content-Encoding, Content-Length, Content-Range");
+            
+            if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+                response.setStatus(HttpServletResponse.SC_OK);
+            } else {
+                chain.doFilter(req, res);
+            }
+        }
+
+
+    public void destroy() {
+        // TODO Auto-generated method stub
+
+    }
+
+    public void init(FilterConfig filterConfig) throws ServletException {
+        // TODO Auto-generated method stub
+
+    }
+}
