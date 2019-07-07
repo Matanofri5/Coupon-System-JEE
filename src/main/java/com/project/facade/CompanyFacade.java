@@ -53,9 +53,10 @@ public class CompanyFacade implements CouponClientFacade{
 	 * this method adds a coupon to company table and to companyCoupon table,
 	 * but! - A different name. If the name exists - throws exception.
 	 * @param coupon
+	 * @return 
 	 * @throws Exception
 	 */
-	public void createCoupon(Coupon coupon) throws Exception {
+	public Coupon createCoupon(Coupon coupon) throws Exception {
 		try {
 			Set<Coupon> coupons = couponDAO.getAllCoupons();
 			Iterator<Coupon> i = coupons.iterator();
@@ -73,6 +74,7 @@ public class CompanyFacade implements CouponClientFacade{
 		} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
+		return coupon;
 	}
 	
 	/**
@@ -91,7 +93,7 @@ public class CompanyFacade implements CouponClientFacade{
 	 */
 	public void updateCoupon(Coupon coupon, Date endDate, double price)
 			throws Exception {
-		coupon.setEndDate(DateUtils.getByMounth());
+		coupon.setEndDate(endDate);
 		coupon.setPrice(price);
 		
 		couponDAO.updateCoupon(coupon);

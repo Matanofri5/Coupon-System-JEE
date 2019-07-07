@@ -32,8 +32,6 @@ public class CouponSystem {
 	public DailyTask dailyTask;
 	public Thread thread;
 	public Connection connection;
-	private CompanyDAO companyDAO = new CompanyDBDAO();
-	private CustomerDAO customerDAO = new CustomerDBDAO();
 	
 	private static final int DAY = 1000 * 3600 * 24;
 	private static final int SLEEPTIME = 1 * DAY;
@@ -65,19 +63,22 @@ public class CouponSystem {
 	 * @return facade
 	 * @throws Exception, LoginException
 	 */
-	public CouponClientFacade login(String name, String password, ClientType clientType) throws Exception, LoginException {
+	public static CouponClientFacade login(String name, String password, ClientType clientType) throws Exception, LoginException {
 
 		CouponClientFacade couponClientFacade = null;
 
 		switch (clientType) {
 		case ADMIN:
-			if (name=="admin" && password=="1234") {
-			couponClientFacade = new AdminFacade();
+			if (name.equals("admin") && password.equals("1234")) {
+			AdminFacade adminFacade = new AdminFacade();
+			return adminFacade;
 			}
 			break;
 			
 		case COMPANY:
 			
+			CompanyDAO companyDAO = new CompanyDBDAO();
+
 			Set<Company>companies = companyDAO.getAllCompanys();
 			Iterator<Company> i = companies.iterator();
 			
@@ -93,6 +94,8 @@ public class CouponSystem {
 
 			break;
 		case CUSTOMER:
+			
+			CustomerDAO customerDAO = new CustomerDBDAO();
 		
 			Set<Customer>customers = customerDAO.getAllCustomer();
 			Iterator<Customer> c = customers.iterator();

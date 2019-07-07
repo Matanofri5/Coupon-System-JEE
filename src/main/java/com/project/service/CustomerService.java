@@ -39,7 +39,7 @@ public class CustomerService {
 //	}
 	
 	private CustomerFacade getFacade() throws LoginException, Exception {
-		CustomerFacade customerFacade = (CustomerFacade)couponSystem.login("Linoy", "456", ClientType.CUSTOMER);
+		CustomerFacade customerFacade = (CustomerFacade)couponSystem.login("Matan", "123", ClientType.CUSTOMER);
 		return customerFacade;
 	}
 	

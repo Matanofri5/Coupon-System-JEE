@@ -32,7 +32,7 @@ public class AdminService {
 	@Context
 	private HttpServletResponse response;
 	
-	private CouponSystem couponSystem;
+	private static CouponSystem couponSystem;
 	
 //	private AdminFacade getFacade() {
 //			AdminFacade adminFacade = (AdminFacade) request.getSession(false).getAttribute("facade");
@@ -40,7 +40,8 @@ public class AdminService {
 //			}
 	
 	private AdminFacade getFacade() throws LoginException, Exception {
-		AdminFacade adminFacade = (AdminFacade)couponSystem.login("admin", "1234", ClientType.ADMIN);
+		AdminFacade adminFacade = null;
+		adminFacade = (AdminFacade)couponSystem.login("admin", "1234", ClientType.ADMIN);
 		return adminFacade;	
 		
 	}

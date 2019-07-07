@@ -1,15 +1,13 @@
 package com.project.service;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -17,8 +15,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.project.beans.Company;
 import com.project.beans.Coupon;
 import com.project.beans.CouponType;
@@ -44,25 +40,26 @@ public class CompanyService {
 	
 	
 	public CompanyFacade getFacade() throws LoginException, Exception {
-		CompanyFacade companyFacade = (CompanyFacade)couponSystem.login("Hp", "aa11", ClientType.COMPANY);
+		CompanyFacade companyFacade = (CompanyFacade)couponSystem.login("Hp", "123", ClientType.COMPANY);
 		return companyFacade;
 	}
 
 	// create Coupon
-//	@POST
-//	@Path("createCoupon")
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public String createCoupon(Company company, Coupon coupon) throws LoginException, Exception {
-//		CompanyFacade companyFacade = getFacade();
-//		
-//		try {
-//			companyFacade.createCoupon(company, coupon);
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());
-//		}
-//		return null;
-//	}
+	@POST
+	@Path("createCoupon")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String createCoupon(Coupon coupon) throws LoginException, Exception {
+		CompanyFacade companyFacade = getFacade();
+		
+		try {
+			coupon = companyFacade.createCoupon(coupon);
+			return new Gson().toJson(coupon);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
 
 	
 	// remove Coupon By Id
