@@ -91,7 +91,7 @@ public class CompanyFacade implements CouponClientFacade{
 	 * @update this method update 1 object of coupon, from coupon table.
 	 * @param coupon object, newEndDate, newPrice
 	 */
-	public void updateCoupon(Coupon coupon, Date endDate, double price)
+	public void updateCoupon(Coupon coupon, java.sql.Date endDate, double price)
 			throws Exception {
 		coupon.setEndDate(endDate);
 		coupon.setPrice(price);

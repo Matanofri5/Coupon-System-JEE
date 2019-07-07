@@ -29,7 +29,7 @@ public class Coupon {
 	/**
 	 * @Full CTOR
 	 */
-	public Coupon(long id, String title, java.util.Date startDate, java.util.Date endDate, int amount, String message,
+	public Coupon(long id, String title, java.sql.Date startDate, java.sql.Date endDate, int amount, String message,
 			double price, String image, CouponType couponType) {
 		super();
 		setId(id);
@@ -47,7 +47,7 @@ public class Coupon {
 	/**
 	 * @Full CTOR
 	 */
-	public Coupon(String title, java.util.Date startDate, java.util.Date endDate, int amount, String message,
+	public Coupon(String title, java.sql.Date startDate, java.sql.Date endDate, int amount, String message,
 			double price, String image, CouponType couponType) {
 		super();
 		setTitle(title);
@@ -101,7 +101,7 @@ public class Coupon {
 	 * @param Set
 	 *            startDate of coupon.
 	 */
-	public void setStartDate(java.util.Date newStartDate) {
+	public void setStartDate(java.sql.Date newStartDate) {
 		startDate = (Date) newStartDate;
 	}
 
@@ -116,7 +116,7 @@ public class Coupon {
 	 * @param Set
 	 *            endDate of coupon.
 	 */
-	public void setEndDate(java.util.Date newEndDate) {
+	public void setEndDate(java.sql.Date newEndDate) {
 		this.endDate = (Date) newEndDate;
 	}
 

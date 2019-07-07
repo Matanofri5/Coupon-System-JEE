@@ -166,58 +166,57 @@ public class CompanyService {
 		return null;
 	}
 
-//	// get Coupon by Type
-//	@GET
-//	@Path("getCouponbyType")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	// must Company company :((
-//	public String getCouponbyType(@QueryParam("companyId") Company company,
-//			@QueryParam("couponType") CouponType couponType) throws LoginException, Exception {
-//		CompanyFacade companyFacade = getFacade();
-//		try {
-//			List<Coupon> coupons = companyFacade.getCouponbyType(company, couponType);
-//			return new Gson().toJson(coupons);
-//
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());
-//		}
-//		System.err.println("this company id " + company + ", dont have this coupons type");
-//		return null;
-//	}
-//
-//	// get Coupon By Price
-//	@GET
-//	@Path("getCouponByPrice")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	// must Company company :((
-//	public String getCouponByPrice(@QueryParam("companyId") Company company, @QueryParam("price") double price) throws LoginException, Exception {
-//		CompanyFacade companyFacade = getFacade();
-//		try {
-//			List<Coupon> coupons = companyFacade.getCouponByPrice(company, price);
-//			return new Gson().toJson(coupons);
-//
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());
-//		}
-//		System.err.println("this company id " + company + ", dont have coupons by this price");
-//		return null;
-//	}
-//
-//	// get Coupon By Date
-//	@GET
-//	@Path("getCouponByDate")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	// must Company company :((
-//	public String getCouponByDate(@QueryParam("companyId") Company company, @QueryParam("endDate") Date endDate) throws LoginException, Exception {
-//		CompanyFacade companyFacade = getFacade();
-//		try {
-//			List<Coupon> coupons = companyFacade.getCouponByDate(company, endDate);
-//			return new Gson().toJson(coupons);
-//
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());
-//		}
-//		System.err.println("this company id " + company + ", dont have coupons by thid end date");
-//		return null;
-//	}
+	// get Coupon by Type
+	@GET
+	@Path("getCouponbyType/{couponType}")
+	@Produces(MediaType.APPLICATION_JSON)
+	// must Company company :((
+	public String getCouponbyType(@PathParam("couponType") CouponType couponType) throws LoginException, Exception {
+		CompanyFacade companyFacade = getFacade();
+		try {
+			List<Coupon> coupons = companyFacade.getCouponbyType(couponType);
+			return new Gson().toJson(coupons);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		System.err.println("this company dont have this coupons type : " + couponType);
+		return null;
+	}
+
+	// get Coupon By Price
+	@GET
+	@Path("getCouponByPrice/{price}")
+	@Produces(MediaType.APPLICATION_JSON)
+	// must Company company :((
+	public String getCouponByPrice(@PathParam("price") double price) throws LoginException, Exception {
+		CompanyFacade companyFacade = getFacade();
+		try {
+			List<Coupon> coupons = companyFacade.getCouponByPrice(price);
+			return new Gson().toJson(coupons);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		System.err.println("this company dont have coupons by that price : " + price);
+		return null;
+	}
+
+	// get Coupon By Date
+	@GET
+	@Path("getCouponByDate/{endDate}")
+	@Produces(MediaType.APPLICATION_JSON)
+	// must Company company :((
+	public String getCouponByDate(@PathParam("endDate") Date endDate) throws LoginException, Exception {
+		CompanyFacade companyFacade = getFacade();
+		try {
+			List<Coupon> coupons = companyFacade.getCouponByDate(endDate);
+			return new Gson().toJson(coupons);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		System.err.println("this company dont have coupons by thid end date : " + endDate);
+		return null;
+	}
 }
