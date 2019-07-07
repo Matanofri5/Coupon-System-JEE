@@ -8,8 +8,10 @@ import com.project.beans.Company;
 import com.project.beans.Coupon;
 import com.project.beans.Customer;
 import com.project.dao.CompanyDAO;
+import com.project.dao.CouponDAO;
 import com.project.dao.CustomerDAO;
 import com.project.dbdao.CompanyDBDAO;
+import com.project.dbdao.CouponDBDAO;
 import com.project.dbdao.CustomerDBDAO;
 import com.project.exceptions.CompanyAlreadyExistsException;
 import com.project.exceptions.CustomerAlreadyExistsException;
@@ -24,25 +26,27 @@ public class AdminFacade implements CouponClientFacade {
 	/**
 	 * Data Members
 	 */
+	private CouponDAO couponDAO;
 	private CompanyDAO companyDAO;
 	private CustomerDAO customerDAO;
 	private boolean successLogin = true;
 	
 
-	/**
-	 * @throws Exception 
-	 * @Full CTOR
-	 */
-	public AdminFacade(CompanyDAO companyDAO, CustomerDAO customerDAO) throws Exception {
-		this.companyDAO = new CompanyDBDAO();
-		this.customerDAO = new CustomerDBDAO();
-	}
+//	/**
+//	 * @throws Exception 
+//	 * @Full CTOR
+//	 */
+//	public AdminFacade(CompanyDAO companyDAO, CustomerDAO customerDAO) throws Exception {
+//		this.companyDAO = new CompanyDBDAO();
+//		this.customerDAO = new CustomerDBDAO();
+//	}
 	
 	/**
 	 * @throws Exception 
 	 * @Empty CTOR
 	 */
 	public AdminFacade() throws Exception {
+		this.couponDAO = new CouponDBDAO();
 		this.companyDAO = new CompanyDBDAO();
 		this.customerDAO = new CustomerDBDAO();
 	}
@@ -208,5 +212,15 @@ public class AdminFacade implements CouponClientFacade {
 	 */
 	public Set<Customer> getAllCustomers() throws Exception {
 		return customerDAO.getAllCustomer();
+	}
+	
+	/**
+	 * This method get all the coupons on DataBase
+	 * @return
+	 * @throws Exception
+	 */
+	
+	public Set<Coupon> getAllCouponsFromDB() throws Exception{
+		return couponDAO.getAllCoupons();
 	}
 }

@@ -15,6 +15,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import com.google.gson.Gson;
 import com.project.beans.Company;
+import com.project.beans.Coupon;
 import com.project.beans.Customer;
 import com.project.exceptions.CompanyAlreadyExistsException;
 import com.project.exceptions.CustomerAlreadyExistsException;
@@ -176,6 +177,7 @@ public class AdminService {
 			}
 		}
 		
+		// UPDATE a customer
 		@POST
 		@Path("updateCustomer")
 		@Produces(MediaType.APPLICATION_JSON)
@@ -192,6 +194,7 @@ public class AdminService {
 			}
 		}
 		
+		// GET customer by id
 		@GET
 		@Path("getCustomer/{customerId}")
 		@Produces(MediaType.APPLICATION_JSON)
@@ -210,6 +213,7 @@ public class AdminService {
 			return null;
 		}
 		
+		// GET all customers
 		@GET
 		@Path("getAllCustomers")
 		@Produces(MediaType.APPLICATION_JSON)
@@ -220,6 +224,21 @@ public class AdminService {
 				return new Gson().toJson(customers);
 			}
 			catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+			return null;
+		}
+		
+		// GET all coupons ob Database
+		@GET
+		@Path("getAllCouponsFromDB")
+		@Produces(MediaType.APPLICATION_JSON)
+		public String getAllCouponsFromDB() throws LoginException, Exception {
+			AdminFacade adminFacade = getFacade();
+			try {
+				Set<Coupon>coupons = adminFacade.getAllCouponsFromDB();
+				return new Gson().toJson(coupons);
+			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
 			return null;
