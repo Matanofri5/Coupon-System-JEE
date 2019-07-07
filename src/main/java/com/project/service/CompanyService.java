@@ -34,7 +34,8 @@ public class CompanyService {
 	private HttpServletRequest request;
 	@Context
 	private HttpServletResponse response;
-	
+
+	private CouponSystem couponSystem;
 
 //	public CompanyFacade getFacade() {
 //		CompanyFacade companyFacade = (CompanyFacade) request.getSession(false).getAttribute("facade");
@@ -43,7 +44,7 @@ public class CompanyService {
 	
 	
 	public CompanyFacade getFacade() throws LoginException, Exception {
-		CompanyFacade companyFacade = (CompanyFacade)CouponSystem.login("Sony", "cc33", ClientType.COMPANY);
+		CompanyFacade companyFacade = (CompanyFacade)couponSystem.login("Hp", "aa11", ClientType.COMPANY);
 		return companyFacade;
 	}
 

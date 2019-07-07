@@ -24,22 +24,22 @@ import com.project.main.DateUtils;
 public class CompanyFacade implements CouponClientFacade{
 	private CompanyDAO companyDAO;
 	private CouponDAO couponDAO;
+	private Company company;
 
+	/**
+	 * @Empty CTOR
+	 */
+
+	public CompanyFacade() {
+		
+		}
 
 	/**
 	 * @throws Exception 
 	 * @partial CTOR 
 	 */
-	public CompanyFacade(CompanyDAO companyDAO, CouponDAO couponDAO) throws Exception {
-		this.companyDAO = new CompanyDBDAO();
-		this.couponDAO = new CouponDBDAO();
-		}
-
-	/**
-	 * @throws Exception 
-	 * @Empty CTOR
-	 */
-	public CompanyFacade() throws Exception {
+	public CompanyFacade(Company company) throws Exception {
+		this.company = company;
 		this.companyDAO = new CompanyDBDAO();
 		this.couponDAO = new CouponDBDAO();
 	}
@@ -55,7 +55,7 @@ public class CompanyFacade implements CouponClientFacade{
 	 * @param coupon
 	 * @throws Exception
 	 */
-	public void createCoupon(Company company, Coupon coupon) throws Exception {
+	public void createCoupon(Coupon coupon) throws Exception {
 		try {
 			Set<Coupon> coupons = couponDAO.getAllCoupons();
 			Iterator<Coupon> i = coupons.iterator();
@@ -67,7 +67,7 @@ public class CompanyFacade implements CouponClientFacade{
 			}
 			if (!i.hasNext()) {
 				couponDAO.insertCoupon(coupon);
-				companyDAO.companyCreateCoupon(company, coupon);
+				companyDAO.companyCreateCoupon(this.company, coupon);
 
 			} 
 		} catch (Exception e) {
@@ -146,8 +146,8 @@ public class CompanyFacade implements CouponClientFacade{
 	 * @return list of coupons
 	 * @throws Exception
 	 */
-	public List<Coupon> getCouponbyType(Company company, CouponType type) throws Exception{
-		List<Coupon> coupons = getAllCompanyCoupon(company);
+	public List<Coupon> getCouponbyType(CouponType type) throws Exception{
+		List<Coupon> coupons = getAllCompanyCoupon(this.company);
 		List<Coupon> couponByType = new ArrayList<Coupon>();
 		try {
 			for (Coupon coupon : coupons) {
@@ -166,8 +166,8 @@ public class CompanyFacade implements CouponClientFacade{
 	 * @return list of coupons
 	 * @throws Exception
 	 */
-	public List<Coupon> getCouponByPrice (Company company, double price) throws Exception{
-		List<Coupon> coupons = getAllCompanyCoupon(company);
+	public List<Coupon> getCouponByPrice (double price) throws Exception{
+		List<Coupon> coupons = getAllCompanyCoupon(this.company);
 		List<Coupon> couponByPrice = new ArrayList<Coupon>();
 		try {
 			for (Coupon coupon : coupons) {
@@ -186,8 +186,8 @@ public class CompanyFacade implements CouponClientFacade{
 	 * @return list of coupons
 	 * @throws Exception
 	 */
-	public List<Coupon> getCouponByDate (Company company, Date endDate) throws Exception{
-		List<Coupon> coupons = getAllCompanyCoupon(company);
+	public List<Coupon> getCouponByDate (Date endDate) throws Exception{
+		List<Coupon> coupons = getAllCompanyCoupon(this.company);
 		List<Coupon> couponByDate = new ArrayList<Coupon>();
 		try {
 			for (Coupon coupon : coupons) {

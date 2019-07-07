@@ -37,8 +37,8 @@ public class DailyTask  implements Runnable {
 		while (running) {
 			
 			try {
-				Thread.sleep(5000);
-				// Thread.sleep(1000 * 60 * 60 * 24);
+//				Thread.sleep(5000);
+				 Thread.sleep(1000 * 60 * 60 * 24);
 				
 				Set<Coupon> allCoupons = couponDAO.getAllCoupons();
 				for (Coupon coupon : allCoupons) {

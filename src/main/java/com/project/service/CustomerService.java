@@ -31,13 +31,15 @@ public class CustomerService {
 	@Context
 	private HttpServletResponse response;
 	
+	private CouponSystem couponSystem;
+	
 //	private CustomerFacade getFacade() {
 //		CustomerFacade customerFacade = (CustomerFacade) request.getSession(false).getAttribute("facade");
 //		return customerFacade;
 //	}
 	
 	private CustomerFacade getFacade() throws LoginException, Exception {
-		CustomerFacade customerFacade = (CustomerFacade)CouponSystem.login("Linoy", "456", ClientType.CUSTOMER);
+		CustomerFacade customerFacade = (CustomerFacade)couponSystem.login("Linoy", "456", ClientType.CUSTOMER);
 		return customerFacade;
 	}
 	
