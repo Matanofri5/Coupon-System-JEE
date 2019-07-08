@@ -44,7 +44,7 @@ public class CompanyService {
 		return companyFacade;
 	}
 
-	// create Coupon
+	// CREATE Coupon
 	@POST
 	@Path("createCoupon")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -62,7 +62,7 @@ public class CompanyService {
 	}
 
 	
-	// remove Coupon By Id
+	// REMOVE Coupon By Id
 	@DELETE
 	@Path("removeCouponById/{couponId}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -78,7 +78,7 @@ public class CompanyService {
 	}
 
 	
-	// update Coupon
+	// UPDATE Coupon
 	@POST
 	@Path("updateCoupon")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -96,7 +96,7 @@ public class CompanyService {
 		}
 	}
 
-	// get Company
+	// GET Company
 	@GET
 	@Path("getCompany/{companyId}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -114,7 +114,7 @@ public class CompanyService {
 		return null;
 	}
 
-	// get Coupon By Id
+	// GET Coupon By Id
 	@GET
 	@Path("getCouponById/{couponId}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -133,7 +133,7 @@ public class CompanyService {
 	}
 	
 	
-	// get All Company Coupons
+	// GET All Company Coupons
 	@GET
 	@Path("getAllCompanyCoupons/{companyId}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -150,7 +150,7 @@ public class CompanyService {
 	}
 	
 	
-	//get all company coupons by object
+	// GET all company coupons by object
 	@GET
 	@Path("getAllCompanyCouponsByObj")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -166,11 +166,10 @@ public class CompanyService {
 		return null;
 	}
 
-	// get Coupon by Type
+	// GET Coupon by Type
 	@GET
 	@Path("getCouponbyType/{couponType}")
 	@Produces(MediaType.APPLICATION_JSON)
-	// must Company company :((
 	public String getCouponbyType(@PathParam("couponType") CouponType couponType) throws LoginException, Exception {
 		CompanyFacade companyFacade = getFacade();
 		try {
@@ -184,11 +183,10 @@ public class CompanyService {
 		return null;
 	}
 
-	// get Coupon By Price
+	// GET Coupon By Price
 	@GET
 	@Path("getCouponByPrice/{price}")
 	@Produces(MediaType.APPLICATION_JSON)
-	// must Company company :((
 	public String getCouponByPrice(@PathParam("price") double price) throws LoginException, Exception {
 		CompanyFacade companyFacade = getFacade();
 		try {
@@ -202,11 +200,10 @@ public class CompanyService {
 		return null;
 	}
 
-	// get Coupon By Date
+	// GET Coupon By Date
 	@GET
 	@Path("getCouponByDate/{endDate}")
 	@Produces(MediaType.APPLICATION_JSON)
-	// must Company company :((
 	public String getCouponByDate(@PathParam("endDate") Date endDate) throws LoginException, Exception {
 		CompanyFacade companyFacade = getFacade();
 		try {

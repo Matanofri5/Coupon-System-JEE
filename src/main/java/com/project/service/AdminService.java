@@ -48,12 +48,12 @@ public class AdminService {
 	}
 	
 	
-	// Create a new company in the db
-	@POST
-	@Path("createCompany")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public String createCompany (Company company) throws Exception {
+		// Create a new company in the db
+		@POST
+		@Path("createCompany")
+		@Consumes(MediaType.APPLICATION_JSON)
+		@Produces(MediaType.APPLICATION_JSON)
+		public String createCompany (Company company) throws Exception {
 			AdminFacade adminFacade = getFacade();
 			try {
 				adminFacade.createCompany(company);
@@ -62,7 +62,7 @@ public class AdminService {
 				System.out.println(e.getMessage());
 			}
 			return null;
-	}
+		}
 	
 	
 		// REMOVE a Company
@@ -229,7 +229,7 @@ public class AdminService {
 			return null;
 		}
 		
-		// GET all coupons ob Database
+		// GET all coupons from Database
 		@GET
 		@Path("getAllCouponsFromDB")
 		@Produces(MediaType.APPLICATION_JSON)

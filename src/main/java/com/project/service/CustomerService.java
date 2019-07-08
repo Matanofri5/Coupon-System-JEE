@@ -41,7 +41,7 @@ public class CustomerService {
 		return customerFacade;
 	}
 	
-	//purchase Coupon
+	// PURCHASE Coupon
 	@POST
 	@Path("purchaseCoupon/{couponId}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -59,7 +59,7 @@ public class CustomerService {
 		
 	}
 	
-	//get All Purchased Coupons
+	// GET All Purchased Coupons by id
 	@GET
 	@Path("getAllPurchasedCoupons/{customerId}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -75,7 +75,7 @@ public class CustomerService {
 		return null;
 	}
 	
-	//get All Customer Coupon
+	// GET All Customer Coupon
 	@GET
 	@Path("getAllCustomerCouponByObj")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -91,7 +91,7 @@ public class CustomerService {
 		return null;
 	}
 	
-	//get Coupon by Type
+	// GET Coupon by Type
 	@GET
 	@Path("getCouponbyType/{couponType}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -107,7 +107,7 @@ public class CustomerService {
 		return null;
 	}
 	
-	//get Coupon by price
+	// GET Coupon by price
 	@GET
 	@Path("getCouponbyPrice/{couponPrice}")
 	@Produces(MediaType.APPLICATION_JSON)
