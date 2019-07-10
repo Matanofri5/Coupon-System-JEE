@@ -16,7 +16,29 @@
         <servlet-name>Jersey Web Application</servlet-name>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
+    
+    <!--  <filter>
+        <display-name>SessionFilter</display-name>
+        <filter-name>SessionFilter</filter-name>
+        <filter-class>com.project.filter.SessionFilter</filter-class>
+            </filter>
 
+    <filter-mapping>
+        <filter-name>SessionFilter</filter-name>
+       <url-pattern>/SessionFilter</url-pattern>
+   </filter-mapping>
+   <filter-mapping>
+        <filter-name>SessionFilter</filter-name>
+       <servlet-name>Jersey Web Application</servlet-name>
+    </filter-mapping>
 
+	<servlet>
+        <servlet-name>Login Servlet</servlet-name>
+        <servlet-class>com.project.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login Servlet</servlet-name>
+        <url-pattern>/login/*</url-pattern>
+    </servlet-mapping>-->
 
 </web-app>

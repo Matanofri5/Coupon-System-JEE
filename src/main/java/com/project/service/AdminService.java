@@ -13,6 +13,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 import com.google.gson.Gson;
 import com.project.beans.Company;
 import com.project.beans.Coupon;
@@ -53,16 +55,23 @@ public class AdminService {
 		@Path("createCompany")
 		@Consumes(MediaType.APPLICATION_JSON)
 		@Produces(MediaType.APPLICATION_JSON)
-		public String createCompany (Company company) throws Exception {
+		public Response createCompany (String company) throws Exception {
+				
+			Gson gson  = new Gson(); 
+			Company companyFromJson = gson.fromJson(company, Company.class);
+				
 			AdminFacade adminFacade = getFacade();
-			try {
-				adminFacade.createCompany(company);
-				return new Gson().toJson(company);
-			} catch (CompanyAlreadyExistsException e) {
+			System.out.println(companyFromJson);
+			try {					
+				adminFacade.createCompany(companyFromJson);
+				String res = "SUCCEDD TO CREATE NEW COMPANY " + companyFromJson;
+				String reString = new Gson().toJson(res);
+				return Response.status(Response.Status.OK).entity(reString).build();
+			} catch (CompanyAlreadyExistsException e) {			
 				System.out.println(e.getMessage());
 			}
 			return null;
-		}
+			}
 	
 	
 		// REMOVE a Company
