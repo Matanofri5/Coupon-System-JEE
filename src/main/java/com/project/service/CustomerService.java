@@ -78,7 +78,6 @@ public class CustomerService {
 	// GET All Customer Coupon
 	@GET
 	@Path("getAllCustomerCouponByObj")
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getAllCustomerCoupon(Customer customer) throws LoginException, Exception{
 		CustomerFacade customerFacade = getFacade();

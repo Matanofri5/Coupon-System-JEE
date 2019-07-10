@@ -153,7 +153,6 @@ public class CompanyService {
 	// GET all company coupons by object
 	@GET
 	@Path("getAllCompanyCouponsByObj")
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getAllCompanyCouponsByObj(Company company) throws LoginException, Exception {
 		CompanyFacade companyFacade = getFacade();

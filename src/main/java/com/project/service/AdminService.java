@@ -154,13 +154,18 @@ public class AdminService {
 		@Path("createCustomer")
 		@Consumes(MediaType.APPLICATION_JSON)
 		@Produces(MediaType.APPLICATION_JSON)
-		public String createCustomer (Customer customer) throws Exception {
+		public Response createCustomer (String customer) throws Exception {
 			
 			AdminFacade adminFacade = getFacade();
+			Gson gson = new Gson();
+			Customer customerFromJson = gson.fromJson(customer, Customer.class);
+			System.out.println(customerFromJson);
 			try {
-				adminFacade.createCustomer(customer);
-				return new Gson().toJson(customer);
-			} catch (CustomerAlreadyExistsException e) {
+				adminFacade.createCustomer(customerFromJson);
+				String res = "SUCCEDD TO CREATE NEW CUSTOMER " + customerFromJson;
+				String reString = new Gson().toJson(res);
+				return Response.status(Response.Status.OK).entity(reString).build();
+				} catch (CustomerAlreadyExistsException e) {
 				System.out.println("This customer already exists !");
 			}
 			return null;
