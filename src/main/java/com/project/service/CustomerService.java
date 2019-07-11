@@ -12,6 +12,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 import com.google.gson.Gson;
 import com.project.beans.Coupon;
 import com.project.beans.CouponType;
@@ -46,16 +48,20 @@ public class CustomerService {
 	@Path("purchaseCoupon/{couponId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String purchaseCoupon(@PathParam("couponId")long couponId) throws LoginException, Exception {
+	public Response purchaseCoupon(@PathParam("couponId")long couponId) throws LoginException, Exception {
+		
 		CustomerFacade customerFacade = getFacade();
+		
 		try {
-			
 			customerFacade.purchaseCoupon(couponId);
+			String res = "CUSTOMER SUCCEDD TO PURCHASE COUPON " + couponId;
+			String reString = new Gson().toJson(res);
+			return Response.status(Response.Status.OK).entity(reString).build();
 		}
 		catch (Exception e) {
-			return "failed to purchase coupon " + e.getMessage();
+			System.out.println(e.getMessage());
 		}
-		return "customer purchase coupon : " + couponId;
+		return null;
 		
 	}
 	
