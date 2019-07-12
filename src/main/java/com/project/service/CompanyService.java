@@ -33,16 +33,16 @@ public class CompanyService {
 
 	private CouponSystem couponSystem;
 
-//	public CompanyFacade getFacade() {
-//		CompanyFacade companyFacade = (CompanyFacade) request.getSession(false).getAttribute("facade");
-//		return companyFacade;
-//	}
-	
-	
-	public CompanyFacade getFacade() throws LoginException, Exception {
-		CompanyFacade companyFacade = (CompanyFacade)couponSystem.login("Hp", "123", ClientType.COMPANY);
+	public CompanyFacade getFacade() {
+		CompanyFacade companyFacade = (CompanyFacade) request.getSession(false).getAttribute("facade");
 		return companyFacade;
 	}
+	
+	
+//	public CompanyFacade getFacade() throws LoginException, Exception {
+//		CompanyFacade companyFacade = (CompanyFacade)couponSystem.login("Hp", "123", ClientType.COMPANY);
+//		return companyFacade;
+//	}
 
 	// CREATE Coupon
 	@POST

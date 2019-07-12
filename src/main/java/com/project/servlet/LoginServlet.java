@@ -2,7 +2,6 @@ package com.project.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,7 +42,6 @@ public class LoginServlet extends HttpServlet  {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		System.out.println("1111111111111111111");
 
 		// check whether there is a open session
 		HttpSession session = request.getSession(false);
@@ -52,23 +50,19 @@ public class LoginServlet extends HttpServlet  {
 
 			session.invalidate(); // killing the session if exist
 		}
-		System.out.println("1111111111111111112");
 
 
 		session = request.getSession(true); // create a new session for a new
 											// client
 		
-		System.out.println("1111111111111111113");
 
 		System.out.println(session.getId() +" * "+ session.getMaxInactiveInterval());
 		// getting the data from the Login HTML form
 		String name = request.getParameter("name");
 		String password = request.getParameter("pass");
 		String clientType1 = request.getParameter("type");
-		System.out.println("1111111111111111114");
 		System.out.println(clientType1);
 		ClientType clientType = ClientType.valueOf(clientType1.toUpperCase()); // convert String to
-		System.out.println("1111111111111111115");
 												// ENUM
 
 		try {
