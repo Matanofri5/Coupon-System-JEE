@@ -37,17 +37,17 @@ public class AdminService {
 	
 	private static CouponSystem couponSystem;
 	
-//	private AdminFacade getFacade() {
-//			AdminFacade adminFacade = (AdminFacade) request.getSession(false).getAttribute("facade");
-//			return adminFacade;
-//			}
+	private AdminFacade getFacade() {
+			AdminFacade adminFacade = (AdminFacade) request.getSession(false).getAttribute("facade");
+			return adminFacade;
+			}
 	
-	private AdminFacade getFacade() throws LoginException, Exception {
-		AdminFacade adminFacade = null;
-		adminFacade = (AdminFacade)couponSystem.login("admin", "1234", ClientType.ADMIN);
-		return adminFacade;	
-		
-	}
+//	private AdminFacade getFacade() throws LoginException, Exception {
+//		AdminFacade adminFacade = null;
+//		adminFacade = (AdminFacade)couponSystem.login("admin", "1234", ClientType.ADMIN);
+//		return adminFacade;	
+//		
+//	}
 	
 	
 		// Create a new company in the db
