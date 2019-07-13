@@ -86,7 +86,7 @@ public class LoginServlet extends HttpServlet  {
 					// Company company =
 					// ((CompanyFacade)facade).getLoginCompany();
 					// session.setAttribute("company", company);
-					request.getRequestDispatcher("company.html").forward(request, response);
+					request.getRequestDispatcher("admin.html").forward(request, response);
 					break;
 
 				case CUSTOMER:
@@ -94,7 +94,7 @@ public class LoginServlet extends HttpServlet  {
 					// Customer customer =
 					// ((CustomerFacade)facade).getLoginCustomer();
 					// session.setAttribute("customer", customer);
-					request.getRequestDispatcher("customer.html").forward(request, response);
+					request.getRequestDispatcher("admin.html").forward(request, response);
 					break;
 
 				default:

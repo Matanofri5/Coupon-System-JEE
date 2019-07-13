@@ -33,15 +33,15 @@ public class CustomerService {
 	
 	private CouponSystem couponSystem;
 	
-//	private CustomerFacade getFacade() {
-//		CustomerFacade customerFacade = (CustomerFacade) request.getSession(false).getAttribute("facade");
-//		return customerFacade;
-//	}
-	
-	private CustomerFacade getFacade() throws LoginException, Exception {
-		CustomerFacade customerFacade = (CustomerFacade)couponSystem.login("Matan", "123", ClientType.CUSTOMER);
+	private CustomerFacade getFacade() {
+		CustomerFacade customerFacade = (CustomerFacade) request.getSession(false).getAttribute("facade");
 		return customerFacade;
 	}
+	
+//	private CustomerFacade getFacade() throws LoginException, Exception {
+//		CustomerFacade customerFacade = (CustomerFacade)couponSystem.login("Matan", "123", ClientType.CUSTOMER);
+//		return customerFacade;
+//	}
 	
 	// PURCHASE Coupon
 	@POST
