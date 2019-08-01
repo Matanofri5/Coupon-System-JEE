@@ -17,7 +17,17 @@
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
     
-      <filter>
+    <filter>
+        <filter-name>CorsFilter</filter-name>
+        <filter-class>com.project.corsfilter.CorsFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CorsFilter</filter-name>
+        <url-pattern>/login</url-pattern>
+    </filter-mapping>
+    
+<!--       <filter>
         <display-name>SessionFilter</display-name>
         <filter-name>SessionFilter</filter-name>
         <filter-class>com.project.filter.SessionFilter</filter-class>
@@ -36,9 +46,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.project.servlet.LoginServlet</servlet-class>
     </servlet>
+    
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping> -->
 
 </web-app>
